@@ -55,6 +55,13 @@ Each of the ailment buttons on the user interface links to the script attached t
 ## `Project Structure`
 The folder's names correspond to their function in the project. I think the least intuitive part is that the player creates an intance of a projectile when the attack button is pressed (it isn't held somewhere and moved on-screen). Apart from that, I'd recommend following each of the `pressed` event function calls to the relevant part of the code and go from there!
 
+### `Other Interesting Bits`
+Although this project is all about damage calculations, there are some other cool bits to point out;
+- the damage text spawns and travels a random direction upwards while shrinking
+- the health bar for the enemy comes from [this godot tutorial](https://kidscancode.org/godot_recipes/ui/unit_healthbar/)
+- the background color is cornflower blue, a nod to Windows XNA Game Studio
+- the spear flies flat because I couldn't get it to arc and rotate to face the right direction
+- the enemy has a 0.2 second invulnerability after being hit which doesn't apply to ailment damage ticks
 
 ## `Want to know more?`
 I'd like to help - tweet me [@not_reuty](https://twitter.com/not_reuty) any questions you have about this project and I'll do my best to answer them. Good Luck!
