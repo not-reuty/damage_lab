@@ -59,7 +59,7 @@ Each of the ailment buttons on the user interface links to the script attached t
 ## `Project Structure`
 The folder's names correspond to their function in the project. I think the least intuitive part is that the player creates an intance of a projectile when the attack button is pressed (it isn't held somewhere and moved on-screen). Apart from that, I'd recommend following each of the `pressed` event function calls to the relevant part of the code and go from there!
 
-![](gifs/structure.png)
+![](gifs/structure.PNG)
 
 ### `Other Interesting Bits`
 Although this project is all about damage calculations, there are some other cool bits to point out;
