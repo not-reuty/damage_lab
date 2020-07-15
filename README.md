@@ -45,6 +45,8 @@ Subsequent bleed attacks will add to the duration of the existing bleed, and wil
 ### `Freezing`
 Freezing attacks don't apply a damage over time effect, instead they apply double damage but make the enemy invulnerable (frozen) for one second.
 
+![](gifs/freeze.gif)
+
 Attacks to a frozen enemy do nothing. Freezing an enemy with other status effects applied prevents any damage from being applied by them, but does not stop them from expiring. This means that an enemy with a 10 second bleed or poison that is then frozen will not take damage during the freeze (one second), but will then continue taking damage for the remaining 9 seconds from the bleed or poison once the freeze effect wears off.
 
 Freezing is an example of an 'interacting ailment', because frozen enemies are affected by other ailments differently. In terms of code, this means that each ailment needs to account for the `is_frozen` boolean value, applying or not applying damage depending on the value.

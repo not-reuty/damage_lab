@@ -24,7 +24,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 0.368627, 0.0941176, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -36,26 +36,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="DynamicFontData" id=11]
+[sub_resource type="DynamicFontData" id=5]
 font_path = "res://KOMTITP_.ttf"
-
-[sub_resource type="DynamicFont" id=12]
-size = 12
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-extra_spacing_char = 1
-font_data = SubResource( 11 )
-
-[sub_resource type="DynamicFontData" id=4]
-font_path = "res://KOMTITP_.ttf"
-
-[sub_resource type="DynamicFont" id=5]
-size = 12
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = SubResource( 4 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 12
@@ -63,9 +45,27 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 extra_spacing_char = 1
-font_data = SubResource( 4 )
+font_data = SubResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://KOMTITP_.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = SubResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.101961, 0.827451, 0, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -77,13 +77,13 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=11]
 size = 12
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 extra_spacing_char = 1
-font_data = SubResource( 4 )
+font_data = SubResource( 7 )
 
 [node name="world" type="Node2D"]
 
@@ -149,9 +149,9 @@ __meta__ = {
 }
 
 [node name="column_container" type="HBoxContainer" parent="HUD/button_panel"]
-margin_left = 20.0
+margin_left = 17.0
 margin_top = 20.0
-margin_right = 701.0
+margin_right = 698.0
 margin_bottom = 189.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -177,10 +177,10 @@ __meta__ = {
 margin_top = 37.0
 margin_right = 171.0
 margin_bottom = 62.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "Attack"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -191,7 +191,7 @@ margin_top = 72.0
 margin_right = 171.0
 margin_bottom = 112.0
 focus_mode = 0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "auto-attack"
 align = 1
@@ -200,7 +200,7 @@ align = 1
 margin_top = 122.0
 margin_right = 171.0
 margin_bottom = 143.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 text = "attack speed: 1.2"
 align = 1
 
@@ -243,7 +243,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 140, 0 )
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "burn"
 clip_text = true
@@ -256,7 +256,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 140, 0 )
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "freeze"
 clip_text = true
@@ -273,7 +273,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 140, 0 )
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Poison"
 clip_text = true
@@ -286,7 +286,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 140, 0 )
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Bleed"
 clip_text = true
@@ -296,7 +296,7 @@ align = 2
 margin_top = 125.0
 margin_right = 284.0
 margin_bottom = 146.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 text = "damage: 10"
 align = 1
 
@@ -334,10 +334,10 @@ margin_right = 180.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 180, 0 )
 mouse_default_cursor_shape = 2
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Restore Hitpoints"
 
 [node name="clear_ailments_button" type="Button" parent="HUD/button_panel/column_container/right_column"]
@@ -345,17 +345,17 @@ margin_top = 78.0
 margin_right = 180.0
 margin_bottom = 103.0
 mouse_default_cursor_shape = 2
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Clear Ailments"
 
 [node name="regen_label" type="Label" parent="HUD/button_panel/column_container/right_column"]
 margin_top = 116.0
 margin_right = 180.0
 margin_bottom = 137.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 text = "Healing: 5"
 align = 1
 
