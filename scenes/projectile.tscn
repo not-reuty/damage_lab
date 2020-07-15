@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://images/item_arrow.png" type="Texture" id=1]
+[ext_resource path="res://scripts/projectile.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.76132
+height = 40.6303
+
+[node name="projectile" type="Area2D" groups=[
+"player_projectiles",
+]]
+script = ExtResource( 2 )
+
+[node name="projectile_shape" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="item_arrow" type="Sprite" parent="."]
+position = Vector2( -0.211956, -0.202915 )
+scale = Vector2( 0.522095, 0.522095 )
+texture = ExtResource( 1 )
+[connection signal="area_shape_entered" from="." to="." method="_on_projectile_area_shape_entered"]

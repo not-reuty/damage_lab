@@ -1,0 +1,387 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://images/green_bar.png" type="Texture" id=1]
+[ext_resource path="res://scripts/enemy.gd" type="Script" id=2]
+[ext_resource path="res://scripts/player.gd" type="Script" id=3]
+[ext_resource path="res://images/character_roundPurple.png" type="Texture" id=4]
+[ext_resource path="res://images/character_roundRed.png" type="Texture" id=5]
+[ext_resource path="res://images/red_bar.png" type="Texture" id=6]
+[ext_resource path="res://misc/font_resource.tres" type="DynamicFont" id=7]
+[ext_resource path="res://scripts/attack_speed_slider.gd" type="Script" id=8]
+[ext_resource path="res://scripts/damage_slider.gd" type="Script" id=9]
+[ext_resource path="res://scripts/regen_slider.gd" type="Script" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 41.791
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 43.0673
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.486275, 0.819608, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 0.368627, 0.0941176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://KOMTITP_.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = SubResource( 11 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://KOMTITP_.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = SubResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.101961, 0.827451, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="DynamicFont" id=9]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = SubResource( 4 )
+
+[node name="world" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="player" type="Area2D" parent="."]
+position = Vector2( -192, -48 )
+script = ExtResource( 3 )
+
+[node name="player_shape" type="CollisionShape2D" parent="player"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="player"]
+scale = Vector2( 0.695203, 0.695203 )
+texture = ExtResource( 5 )
+
+[node name="enemy" type="Area2D" parent="." groups=[
+"enemies",
+]]
+position = Vector2( 192, -48 )
+script = ExtResource( 2 )
+
+[node name="enemy_shape" type="CollisionShape2D" parent="enemy"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="enemy"]
+rotation = -3.14159
+scale = Vector2( 0.679161, -0.679161 )
+texture = ExtResource( 4 )
+
+[node name="health_bar" type="TextureProgress" parent="enemy"]
+margin_left = -100.0
+margin_top = 49.0
+margin_right = 100.0
+margin_bottom = 75.0
+value = 100.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="button_panel" type="PanelContainer" parent="HUD"]
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -357.0
+margin_top = -247.905
+margin_right = 358.0
+margin_bottom = -37.9052
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="column_container" type="HBoxContainer" parent="HUD/button_panel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 701.0
+margin_bottom = 189.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 23
+
+[node name="left_column" type="VBoxContainer" parent="HUD/button_panel/column_container"]
+margin_right = 171.0
+margin_bottom = 169.0
+size_flags_horizontal = 2
+custom_constants/separation = 10
+
+[node name="title" type="Label" parent="HUD/button_panel/column_container/left_column"]
+margin_right = 171.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 7 )
+text = "Player"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attack_button" type="Button" parent="HUD/button_panel/column_container/left_column"]
+margin_top = 37.0
+margin_right = 171.0
+margin_bottom = 62.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
+text = "Attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attack_toggle" type="CheckButton" parent="HUD/button_panel/column_container/left_column"]
+margin_top = 72.0
+margin_right = 171.0
+margin_bottom = 112.0
+focus_mode = 0
+custom_fonts/font = SubResource( 5 )
+enabled_focus_mode = 0
+text = "auto-attack"
+align = 1
+
+[node name="attack_speed_label" type="Label" parent="HUD/button_panel/column_container/left_column"]
+margin_top = 122.0
+margin_right = 171.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 6 )
+text = "attack speed: 1.2"
+align = 1
+
+[node name="attack_speed_slider" type="HSlider" parent="HUD/button_panel/column_container/left_column"]
+margin_top = 153.0
+margin_right = 171.0
+margin_bottom = 169.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.2
+max_value = 2.5
+step = 0.1
+value = 1.2
+ticks_on_borders = true
+script = ExtResource( 8 )
+
+[node name="middle_column" type="VBoxContainer" parent="HUD/button_panel/column_container"]
+margin_left = 194.0
+margin_right = 478.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+custom_constants/separation = 6
+
+[node name="title" type="Label" parent="HUD/button_panel/column_container/middle_column"]
+margin_right = 284.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 7 )
+text = "Projectile"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/button_panel/column_container/middle_column"]
+margin_top = 33.0
+margin_right = 284.0
+margin_bottom = 73.0
+
+[node name="burn_toggle" type="CheckButton" parent="HUD/button_panel/column_container/middle_column/HBoxContainer2"]
+margin_right = 140.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 140, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+enabled_focus_mode = 0
+text = "burn"
+clip_text = true
+align = 2
+
+[node name="freeze_toggle" type="CheckButton" parent="HUD/button_panel/column_container/middle_column/HBoxContainer2"]
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 140, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+enabled_focus_mode = 0
+text = "freeze"
+clip_text = true
+align = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HUD/button_panel/column_container/middle_column"]
+margin_top = 79.0
+margin_right = 284.0
+margin_bottom = 119.0
+
+[node name="poison_toggle" type="CheckButton" parent="HUD/button_panel/column_container/middle_column/HBoxContainer3"]
+margin_right = 140.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 140, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+enabled_focus_mode = 0
+text = "Poison"
+clip_text = true
+align = 2
+
+[node name="bleed_toggle" type="CheckButton" parent="HUD/button_panel/column_container/middle_column/HBoxContainer3"]
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 140, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+enabled_focus_mode = 0
+text = "Bleed"
+clip_text = true
+align = 2
+
+[node name="damage_label" type="Label" parent="HUD/button_panel/column_container/middle_column"]
+margin_top = 125.0
+margin_right = 284.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 6 )
+text = "damage: 10"
+align = 1
+
+[node name="damage_slider" type="HSlider" parent="HUD/button_panel/column_container/middle_column"]
+margin_top = 152.0
+margin_right = 284.0
+margin_bottom = 168.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 25.0
+value = 10.0
+rounded = true
+ticks_on_borders = true
+script = ExtResource( 9 )
+
+[node name="right_column" type="VBoxContainer" parent="HUD/button_panel/column_container"]
+margin_left = 501.0
+margin_right = 681.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+custom_constants/separation = 13
+
+[node name="title" type="Label" parent="HUD/button_panel/column_container/right_column"]
+margin_right = 180.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 7 )
+text = "Enemy"
+align = 1
+
+[node name="heal_button" type="Button" parent="HUD/button_panel/column_container/right_column"]
+margin_top = 40.0
+margin_right = 180.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 180, 0 )
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+text = "Restore Hitpoints"
+
+[node name="clear_ailments_button" type="Button" parent="HUD/button_panel/column_container/right_column"]
+margin_top = 78.0
+margin_right = 180.0
+margin_bottom = 103.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+text = "Clear Ailments"
+
+[node name="regen_label" type="Label" parent="HUD/button_panel/column_container/right_column"]
+margin_top = 116.0
+margin_right = 180.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 6 )
+text = "Healing: 5"
+align = 1
+
+[node name="regen_slider" type="HSlider" parent="HUD/button_panel/column_container/right_column"]
+margin_top = 150.0
+margin_right = 180.0
+margin_bottom = 166.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 20.0
+value = 5.0
+rounded = true
+ticks_on_borders = true
+script = ExtResource( 10 )
+[connection signal="pressed" from="HUD/button_panel/column_container/left_column/attack_button" to="player" method="_on_attack_button_pressed"]
+[connection signal="toggled" from="HUD/button_panel/column_container/left_column/attack_toggle" to="player" method="_on_attack_toggle_toggled"]
+[connection signal="value_changed" from="HUD/button_panel/column_container/left_column/attack_speed_slider" to="HUD/button_panel/column_container/left_column/attack_speed_slider" method="_on_attack_speed_slider_value_changed"]
+[connection signal="value_changed" from="HUD/button_panel/column_container/left_column/attack_speed_slider" to="player" method="_on_attack_speed_slider_value_changed"]
+[connection signal="toggled" from="HUD/button_panel/column_container/middle_column/HBoxContainer2/burn_toggle" to="enemy" method="_on_burn_toggle_toggled"]
+[connection signal="toggled" from="HUD/button_panel/column_container/middle_column/HBoxContainer2/freeze_toggle" to="enemy" method="_on_freeze_toggle_toggled"]
+[connection signal="toggled" from="HUD/button_panel/column_container/middle_column/HBoxContainer3/poison_toggle" to="enemy" method="_on_poison_toggle_toggled"]
+[connection signal="toggled" from="HUD/button_panel/column_container/middle_column/HBoxContainer3/bleed_toggle" to="enemy" method="_on_bleed_toggle_toggled"]
+[connection signal="value_changed" from="HUD/button_panel/column_container/middle_column/damage_slider" to="HUD/button_panel/column_container/middle_column/damage_slider" method="_on_damage_slider_value_changed"]
+[connection signal="value_changed" from="HUD/button_panel/column_container/middle_column/damage_slider" to="player" method="_on_damage_slider_value_changed"]
+[connection signal="pressed" from="HUD/button_panel/column_container/right_column/heal_button" to="enemy" method="_on_heal_button_pressed"]
+[connection signal="pressed" from="HUD/button_panel/column_container/right_column/clear_ailments_button" to="enemy" method="_on_clear_ailments_button_pressed"]
+[connection signal="value_changed" from="HUD/button_panel/column_container/right_column/regen_slider" to="HUD/button_panel/column_container/right_column/regen_slider" method="_on_regen_slider_value_changed"]
+[connection signal="value_changed" from="HUD/button_panel/column_container/right_column/regen_slider" to="enemy" method="_on_regen_slider_value_changed"]

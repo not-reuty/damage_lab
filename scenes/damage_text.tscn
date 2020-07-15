@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/damage_text.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://KOMTITP_.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 4 )
+
+[node name="damage_text" type="Label"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = -39.2564
+margin_right = 20.0
+margin_bottom = -12.2564
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
