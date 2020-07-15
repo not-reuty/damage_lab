@@ -52,5 +52,9 @@ Freezing is an example of an 'interacting ailment', because frozen enemies are a
 ## `User Interface`
 Each of the ailment buttons on the user interface links to the script attached to the `enemy`. In code terms each enemy needs to be aware that it can be poisoned/burned etc, and how to respond to those events/ailments when they are applied. By default, the enemy cannot have any ailments applied, and they are added whenever the enemy takes damage (if enabled). This code could be moved to the projectile or the player in an actual game without this kind of UI.
 
+## `Project Structure`
+The folder's names correspond to their function in the project. I think the least intuitive part is that the player creates an intance of a projectile when the attack button is pressed (it isn't held somewhere and moved on-screen). Apart from that, I'd recommend following each of the `pressed` event function calls to the relevant part of the code and go from there!
+
+
 ## `Want to know more?`
-I'd like to help - tweet me [@not_reuty]9https://twitter.com/not_reuty) any questions you have about this project and I'll do my best to answer them. Good Luck!
+I'd like to help - tweet me [@not_reuty](https://twitter.com/not_reuty) any questions you have about this project and I'll do my best to answer them. Good Luck!
